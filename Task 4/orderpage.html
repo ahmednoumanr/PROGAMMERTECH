@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-Page</title>
+    <link rel="stylesheet" href="orderpage.css">
+    <style>
+        /* Animation keyframes */
+        @keyframes moveToCart {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--moveX), var(--moveY));
+            }
+        }
+
+        .clone {
+            position: absolute;
+            z-index: 1000;
+            transition: transform 0.5s ease-in-out;
+            animation: moveToCart 0.5s ease-in-out;
+        }
+
+        .cart-icon-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .cart-counter {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #f88424;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-container">
+            <!-- Three PNGs on the left -->
+            <img src="./media/insta.png" alt="Image 1">
+            <img src="./media/twitter.png" alt="Image 2">
+            <img src="./media/pin.png" alt="Image 3">
+        </div>
+        <!-- Logo in the center -->
+        <div class="logo">
+            <img src="./media/logo.png" alt="Logo">
+        </div>
+        <nav class="navbar">
+            <!-- Three buttons -->
+            <div class="cart-icon-container">
+                <img style="cursor: pointer;" id="cartIcon" src="./media/cart.png" alt="Cart" width="30px" height="30px" onclick="location.href='cart.html'">
+                <span id="cartCounter" class="cart-counter" >0</span>
+            </div>
+            <a href="about.html" class="nav-button">ABOUT</a>
+            <a href="contact.html" class="nav-button">CONTACT</a>
+            <a href="login.php" class="nav-button">LOGIN</a>
+        </nav>
+    </header>
+
+    <!-- Horizontal Divider -->
+    <div class="divider"></div>
+
+    <div style="background-color:white; width: 25%; height: 400px; cursor: pointer; margin-top: 120px;">
+        <img src="./Media/Behari Kabab.png" height="320px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px;">
+        <p style="color: darkred; margin-left:50px;">RS.1550.00</p>
+        <p style="margin-left:50px">Behari Kabab Pizza</p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Behari Kabab Pizza', 1550, this)">ADD TO CART</button>
+    </div>
+
+    <div style="background-color:white; width: 25%; height: 400px; float: right; margin-right: 768px; margin-top:-400px;" >
+        <img src="./Media/CheeseLoverP.jpg"  height="335px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px;">
+        <p style="color: darkred; margin-left:70px;margin-top: -17px;">RS.1500.00</p>
+        <p style="margin-left:70px">Cheese Lover Pizza</p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Cheese Lover Pizza', 1450, this)">ADD TO CART</button>
+	</div>
+
+	<div style="background-color:white; width: 25%; height: 400px; float: right; margin-right: 388px; margin-top:-400px;" >
+        <img src="./Media/ChickenSupremeP.jpeg"  height="310px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px;">
+        <p style="color: darkred; margin-left:70px;margin-top: 10px;">RS.1700.00</p>
+        <p style="margin-left:70px">Chicken Supreme Pizza</p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Chicken Supreme Pizza', 1600, this)">ADD TO CART</button>
+	</div>
+
+    <div style="background-color:white; width: 25%; height: 400px; float: right; margin-right: 10px; margin-top:-400px;" >
+        <img src="./Media/ChickenTandooriP.png"  height="320px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px;">
+        <p style="color: darkred; margin-left:70px;margin-top: -1px;">RS.1450.00</p>
+        <p style="margin-left:70px">Chicken Tandoori Pizza</p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Chicken Tandoori Pizza', 1580, this)">ADD TO CART</button>
+	</div>
+
+    <div style="background-color:white; width: 25%; height: 400px; margin-top: 60px;" >
+        <img src="./Media/CrownCrustP.jpg" height="310px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px; ">
+        <p style="color: darkred; margin-left:70px;margin-top: 10px;">RS.1800.00</p>
+        <p style="margin-left:70px">Crown Crust Pizza</p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Crown Crust Pizza', 1800, this)">ADD TO CART</button>
+	</div>
+	<div style="background-color:white; width: 25%; height: 400px; float: right; margin-right: 768px; margin-top:-400px;" >
+        <img src="./Media/FajitaP.png" height="300px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px; ">
+        <p style="color: darkred; margin-left:70px;margin-top: 30px;">RS.1450</p>
+        <p style="margin-left:70px">Chicken Fajita Pizza</p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Chicken Fajita Pizza', 1450, this)">ADD TO CART</button>
+	</div>
+	<div style="background-color:white; width: 25%; height: 400px; float: right; margin-right: 388px; margin-top:-400px;" >
+        <img src="./Media/HotnSpicyP.png" height="300px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px; ">
+        <p style="color: darkred; margin-left:70px;margin-top: 30px;">RS.1550.00</p>
+        <p style="margin-left:70px">Hot & Spicy Pizza</p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Hot & Spicy Pizza', 1550, this)">ADD TO CART</button>
+	</div>
+	<div style="background-color:white; width: 25%; height: 400px; float: right; margin-right: 10px; margin-top:-400px;" >
+        <img src="./Media/StuffedCrustP.jpg" height="300px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px; ">
+        <p style="color: darkred; margin-left:70px;margin-top: 30px;">RS.1900.00</p>
+        <p style="margin-left:70px">Stuffed Crust Pizza</p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Stuffed Crust Pizza', 1900, this)">ADD TO CART</button>
+	</div>
+    <div style="background-color:white; width: 25%; height: 400px; margin-top: 50px;" >
+        <img src="./Media/spin rolls.png" height="300px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px; ">
+        <p style="color: darkred; margin-left:70px;margin-top: 30px;">RS.520.00</p>
+        <p style="margin-left:70px">Spin Rolls (4pc)</p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Spin Roll (4pc) ', 520, this)">ADD TO CART</button>
+	</div>
+	<div style="background-color:white; width: 25%; height: 400px; float: right; margin-right: 768px; margin-top:-400px;" >
+        <img src="./Media/dip sauce.jpg" height="280px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px; ">
+        <p style="color: darkred; margin-left:70px;margin-top: 50px;">RS.60.00</p>
+        <p style="margin-left:70px">Dip Sauce</p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Dip Sauce', 60, this)">ADD TO CART</button>
+	</div>
+	<div style="background-color:white; width: 25%; height: 400px; float: right; margin-right: 388px; margin-top:-400px;" >
+        <img src="./Media/Bazinga.png" height="300px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px; ">
+        <p style="color: darkred; margin-left:70px;margin-top: 30px;">RS.480.00</p>
+        <p style="margin-left:70px">Bazinga</p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Bazinga', 480, this)">ADD TO CART</button>
+	</div>
+	<div style="background-color:white; width: 25%; height: 400px; float: right; margin-right: 10px; margin-top:-400px;" >
+        <img src="./Media/BazingaSupreme.png" height="280px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px; ">
+        <p style="color: darkred; margin-left:70px;margin-top: 50px;">RS.680.00</p>
+        <p style="margin-left:70px">Bazinga Supreme</p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Bazinga Supreme', 680, this)">ADD TO CART</button>
+	</div>
+    <div style="background-color:white; width: 25%; height: 400px; margin-top: 50px;" >
+        <img src="./Media/ReggyBurger.png" height="300px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px; ">
+        <p style="color: darkred; margin-left:70px;margin-top: 30px;">RS.300.00</p>
+        <p style="margin-left:70px">Reggy Burger</p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Reggy Burger', 300, this)">ADD TO CART</button>
+    </div>
+    <div style="background-color:white; width: 25%; height: 400px; float: right; margin-right: 768px; margin-top:-400px;" >
+        <img src="./Media/FriedChicken.png" height="300px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px; ">
+        <p style="color: darkred; margin-left:70px;margin-top: 30px;">RS.650.00</p>
+        <p style="margin-left:70px">Fried Chicken (5pc) </p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Fired Chicken (5pc)', 650, this)">ADD TO CART</button>
+    </div>
+    <div style="background-color:white; width: 25%; height: 400px; float: right; margin-right: 388px; margin-top:-400px;" >
+        <img src="./Media/Nuggets.png" height="280px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px; ">
+        <p style="color: darkred; margin-left:70px;margin-top: 50px;">RS.720.00</p>
+        <p style="margin-left:70px">Nuggets (10pc) </p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Nuggets (10pc)', 720, this)">ADD TO CART</button>
+    </div>
+    <div style="background-color:white; width: 25%; height: 400px; float: right; margin-right: 10px; margin-top:-400px;" >
+        <img src="./Media/Hotwings.png" height="300px" width="300px" alt="Icon" style="margin-left: 50px;margin-top: 0px; ">
+        <p style="color: darkred; margin-left:70px;margin-top: 30px;">RS.580.00</p>
+        <p style="margin-left:70px">Hot Wings (10pc) </p>
+        <br>
+        <button style="margin-left: 55px; width: 230px;" class="button" onclick="addToCart('Hot Wings (10pc)', 580, this)">ADD TO CART</button>
+    </div>
+    <!-- Add similar divs for other items -->
+
+    <footer class="footer">
+        <p>&copy; 2024 FoodBYTE. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function updateCartCounter() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCounter = document.getElementById('cartCounter');
+            cartCounter.textContent = cart.length;
+        }
+
+        function addToCart(name, price, button) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name: name, price: price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Update the cart counter
+            updateCartCounter();
+
+            // Animation effect
+            animateToCart(button);
+        }
+
+        function animateToCart(button) {
+            const cartIcon = document.getElementById('cartIcon');
+            const cartIconRect = cartIcon.getBoundingClientRect();
+            const buttonRect = button.getBoundingClientRect();
+
+            const clone = button.cloneNode(true);
+            clone.classList.add('clone');
+            document.body.appendChild(clone);
+
+            const moveX = cartIconRect.left + (cartIconRect.width / 2) - (buttonRect.left + (buttonRect.width / 2));
+            const moveY = cartIconRect.top + (cartIconRect.height / 2) - (buttonRect.top + (buttonRect.height / 2));
+
+            clone.style.setProperty('--moveX', `${moveX}px`);
+            clone.style.setProperty('--moveY', `${moveY}px`);
+
+            clone.style.top = `${buttonRect.top}px`;
+            clone.style.left = `${buttonRect.left}px`;
+
+            setTimeout(() => {
+                clone.remove();
+            }, 500);
+        }
+
+        // Initial call to update the cart counter on page load
+        updateCartCounter();
+    </script>
+    
+</body>
+</html>

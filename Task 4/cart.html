@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="cart.css">
+    <style>
+        /* Your existing styles */
+        .remove-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: red;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        .remove-button:hover {
+            transform: scale(1.2); /* Optional: Increase size on hover */
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Aligns items to the start and end of the container */
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <!-- Three PNGs on the left -->
+            <img src="./media/insta.png" alt="Instagram">
+            <img src="./media/twitter.png" alt="Twitter">
+            <img src="./media/pin.png" alt="Pinterest">
+        </div>
+        <!-- Logo in the center -->
+        <div class="logo">
+            <img src="./media/logo.png" alt="Logo">
+        </div>
+        <nav class="navbar">
+            <!-- Three buttons -->
+            <a href="orderpage.html" class="nav-button">HOME</a>
+            <a href="about.html" class="nav-button">ABOUT</a>
+            <a href="contact.html" class="nav-button">CONTACT</a>
+            <a href="login.php" class="nav-button">LOGIN</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Your Cart</h1>
+        <div id="cart-items"></div>
+        <div class="cart-delivery" id="cart-delivery"></div>
+        <div class="cart-gst" id="cart-gst"></div>
+        <div class="cart-total" id="cart-total"></div>
+        <button class="checkout-button" id="checkout-button" onclick="proceedToCheckout()">Confirm Order</button>
+        <div class="empty-cart-message" id="empty-cart-message" style="display: none;">Your cart is empty</div>
+    </div>
+
+
+    <script src="cart.js"></script>
+
+</body>
+</html>
